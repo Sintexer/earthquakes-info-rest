@@ -22,4 +22,8 @@ public class EarthquakesService {
         );
     }
 
+    public List getSignificant(){
+        return parser.parseRecent();
+    }
+
 }

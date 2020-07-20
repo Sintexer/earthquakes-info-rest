@@ -32,6 +32,10 @@ public class EarthquakesParser{
         return read("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.atom");
     }
 
+    public List<Earthquake> parseSignficant(){
+        return read("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.atom)");
+    }
+
         public List<Earthquake> read(String source) {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 

@@ -1,25 +1,26 @@
 package com.ilyabuglakov.earthquakes.controller;
 
-import com.ilyabuglakov.earthquakes.service.EarthquakesParser;
 import com.ilyabuglakov.earthquakes.service.EarthquakesService;
-import com.ilyabuglakov.earthquakes.service.EarthquakesStatistic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Controller
+@RequestMapping("earthquakes")
 public class EarthquakesController {
 
     @Autowired
     private EarthquakesService service;
 
-    @RequestMapping("/earthquakes")
+    @RequestMapping("recent")
     public ResponseEntity<?> recentEarthquakes() {
-        //return ResponseEntity.ok("All good");
         return ResponseEntity.ok(service.formResponse());
+    }
+
+    @RequestMapping("significant")
+    public ResponseEntity<?> strongEarthquakes(){
+        return ResponseEntity.ok(service.getSignificant());
     }
 
 }
